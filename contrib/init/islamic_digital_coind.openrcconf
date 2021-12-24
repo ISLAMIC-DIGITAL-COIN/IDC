@@ -1,0 +1,33 @@
+# /etc/conf.d/islamic_digital_coind: config file for /etc/init.d/islamic_digital_coind
+
+# Config file location
+#BITCOIND_CONFIGFILE="/etc/islamic_digital_coin/islamic_digital_coin.conf"
+
+# What directory to write pidfile to?  (created and owned by $BITCOIND_USER)
+#BITCOIND_PIDDIR="/var/run/islamic_digital_coind"
+
+# What filename to give the pidfile
+#BITCOIND_PIDFILE="${BITCOIND_PIDDIR}/islamic_digital_coind.pid"
+
+# Where to write islamic_digital_coind data (be mindful that the blockchain is large)
+#BITCOIND_DATADIR="/var/lib/islamic_digital_coind"
+
+# User and group to own islamic_digital_coind process
+#BITCOIND_USER="islamic_digital_coin"
+#BITCOIND_GROUP="islamic_digital_coin"
+
+# Path to islamic_digital_coind executable
+#BITCOIND_BIN="/usr/bin/islamic_digital_coind"
+
+# Nice value to run islamic_digital_coind under
+#BITCOIND_NICE=0
+
+# Additional options (avoid -conf and -datadir, use flags above)
+#BITCOIND_OPTS=""
+
+# The timeout in seconds OpenRC will wait for bitcoind to terminate
+# after a SIGTERM has been raised.
+# Note that this will be mapped as argument to start-stop-daemon's
+# '--retry' option, which means you can specify a retry schedule
+# here. For more information see man 8 start-stop-daemon.
+BITCOIND_SIGTERM_TIMEOUT=60

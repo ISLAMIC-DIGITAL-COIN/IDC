@@ -1,0 +1,14 @@
+QT_TS = \
+  qt/locale/islamic_digital_coin_de.ts \
+  qt/locale/islamic_digital_coin_en.ts \
+  qt/locale/islamic_digital_coin_en_US.ts \
+  qt/locale/islamic_digital_coin_es.ts \
+  qt/locale/islamic_digital_coin_es_ES.ts \
+  qt/locale/islamic_digital_coin_fr_FR.ts \
+  qt/locale/islamic_digital_coin_hr_HR.ts \
+  qt/locale/islamic_digital_coin_it.ts \
+  qt/locale/islamic_digital_coin_ko_KR.ts \
+  qt/locale/islamic_digital_coin_nl.ts \
+  qt/locale/islamic_digital_coin_pl.ts \
+  qt/locale/islamic_digital_coin_ru.ts \
+  qt/locale/islamic_digital_coin_zh_CN.ts

@@ -1,0 +1,5 @@
+bitcoin               ICON    "pixmaps/islamic_digital_coin.ico"
+
+#include "wx/msw/wx.rc"
+
+favicon               ICON    "pixmaps/favicon.ico"

@@ -1,0 +1,721 @@
+# Copyright (c) 2013-2016 The Bitcoin Core developers
+# Distributed under the MIT software license, see the accompanying
+# file COPYING or http://www.opensource.org/licenses/mit-license.php.
+
+bin_PROGRAMS += qt/islamic_digital_coin-qt
+EXTRA_LIBRARIES += qt/libbitcoinqt.a
+
+# islamic_digital_coin qt core #
+include Makefile.qt_locale.include
+
+QT_FORMS_UI = \
+  qt/forms/addressbookpage.ui \
+  qt/forms/askpassphrasedialog.ui \
+  qt/forms/coincontroldialog.ui \
+  qt/forms/editaddressdialog.ui \
+  qt/forms/helpmessagedialog.ui \
+  qt/forms/intro.ui \
+  qt/forms/openuridialog.ui \
+  qt/forms/optionsdialog.ui \
+  qt/forms/rpcconsole.ui \
+  qt/islamic_digital_coin/forms/loadingdialog.ui \
+  qt/islamic_digital_coin/forms/snackbar.ui \
+  qt/islamic_digital_coin/forms/navmenuwidget.ui \
+  qt/islamic_digital_coin/forms/lockunlock.ui \
+  qt/islamic_digital_coin/forms/expandablebutton.ui \
+  qt/islamic_digital_coin/forms/receivedialog.ui \
+  qt/islamic_digital_coin/forms/balancebubble.ui \
+  qt/islamic_digital_coin/forms/topbar.ui \
+  qt/islamic_digital_coin/forms/txrow.ui \
+  qt/islamic_digital_coin/forms/dashboardwidget.ui \
+  qt/islamic_digital_coin/forms/addresslabelrow.ui \
+  qt/islamic_digital_coin/forms/contactdropdownrow.ui \
+  qt/islamic_digital_coin/forms/mninfodialog.ui \
+  qt/islamic_digital_coin/forms/optionbutton.ui \
+  qt/islamic_digital_coin/forms/masternodewizarddialog.ui \
+  qt/islamic_digital_coin/forms/mnrow.ui \
+  qt/islamic_digital_coin/forms/masternodeswidget.ui \
+  qt/islamic_digital_coin/forms/myaddressrow.ui \
+  qt/islamic_digital_coin/forms/csrow.ui \
+  qt/islamic_digital_coin/forms/sendmemodialog.ui \
+  qt/islamic_digital_coin/forms/sendchangeaddressdialog.ui \
+  qt/islamic_digital_coin/forms/sendconfirmdialog.ui \
+  qt/islamic_digital_coin/forms/sendcustomfeedialog.ui \
+  qt/islamic_digital_coin/forms/sendmultirow.ui \
+  qt/islamic_digital_coin/forms/send.ui \
+  qt/islamic_digital_coin/forms/addnewaddressdialog.ui \
+  qt/islamic_digital_coin/forms/addnewcontactdialog.ui \
+  qt/islamic_digital_coin/forms/requestdialog.ui \
+  qt/islamic_digital_coin/forms/receivewidget.ui \
+  qt/islamic_digital_coin/forms/tooltipmenu.ui \
+  qt/islamic_digital_coin/forms/addresseswidget.ui \
+  qt/islamic_digital_coin/forms/defaultdialog.ui \
+  qt/islamic_digital_coin/forms/coldstakingwidget.ui \
+  qt/islamic_digital_coin/settings/forms/settingsbackupwallet.ui \
+  qt/islamic_digital_coin/settings/forms/settingsexportcsv.ui \
+  qt/islamic_digital_coin/settings/forms/settingsbittoolwidget.ui \
+  qt/islamic_digital_coin/settings/forms/settingsconsolewidget.ui \
+  qt/islamic_digital_coin/settings/forms/settingsdisplayoptionswidget.ui \
+  qt/islamic_digital_coin/settings/forms/settingsfaqwidget.ui \
+  qt/islamic_digital_coin/settings/forms/settingsinformationwidget.ui \
+  qt/islamic_digital_coin/settings/forms/settingsmainoptionswidget.ui \
+  qt/islamic_digital_coin/settings/forms/settingsmultisenddialog.ui \
+  qt/islamic_digital_coin/settings/forms/settingsmultisendwidget.ui \
+  qt/islamic_digital_coin/settings/forms/settingssignmessagewidgets.ui \
+  qt/islamic_digital_coin/settings/forms/settingswalletoptionswidget.ui \
+  qt/islamic_digital_coin/settings/forms/settingswalletrepairwidget.ui \
+  qt/islamic_digital_coin/settings/forms/settingswidget.ui \
+  qt/islamic_digital_coin/forms/welcomecontentwidget.ui \
+  qt/islamic_digital_coin/forms/splash.ui
+
+QT_MOC_CPP = \
+  qt/moc_addressbookpage.cpp \
+  qt/moc_addresstablemodel.cpp \
+  qt/moc_askpassphrasedialog.cpp \
+  qt/moc_bantablemodel.cpp \
+  qt/moc_bitcoinaddressvalidator.cpp \
+  qt/islamic_digital_coin/moc_islamic_digital_coingui.cpp \
+  qt/moc_bitcoinunits.cpp \
+  qt/moc_clientmodel.cpp \
+  qt/moc_coincontroldialog.cpp \
+  qt/moc_coincontroltreewidget.cpp \
+  qt/moc_csvmodelwriter.cpp \
+  qt/moc_editaddressdialog.cpp \
+  qt/moc_guiutil.cpp \
+  qt/moc_intro.cpp \
+  qt/moc_macdockiconhandler.cpp \
+  qt/moc_macnotificationhandler.cpp \
+  qt/moc_notificator.cpp \
+  qt/moc_openuridialog.cpp \
+  qt/moc_optionsdialog.cpp \
+  qt/moc_optionsmodel.cpp \
+  qt/moc_peertablemodel.cpp \
+  qt/moc_paymentserver.cpp \
+  qt/moc_qvalidatedlineedit.cpp \
+  qt/moc_qvaluecombobox.cpp \
+  qt/moc_recentrequeststablemodel.cpp \
+  qt/moc_rpcconsole.cpp \
+  qt/moc_trafficgraphwidget.cpp \
+  qt/moc_transactionfilterproxy.cpp \
+  qt/moc_transactiontablemodel.cpp \
+  qt/moc_utilitydialog.cpp \
+  qt/moc_walletmodel.cpp \
+  qt/islamic_digital_coin/moc_loadingdialog.cpp \
+  qt/islamic_digital_coin/moc_pwidget.cpp \
+  qt/islamic_digital_coin/moc_focuseddialog.cpp \
+  qt/islamic_digital_coin/moc_snackbar.cpp \
+  qt/islamic_digital_coin/moc_navmenuwidget.cpp \
+  qt/islamic_digital_coin/moc_lockunlock.cpp \
+  qt/islamic_digital_coin/moc_expandablebutton.cpp \
+  qt/islamic_digital_coin/moc_furabstractlistitemdelegate.cpp \
+  qt/islamic_digital_coin/moc_receivedialog.cpp \
+  qt/islamic_digital_coin/moc_pfborderimage.cpp \
+  qt/islamic_digital_coin/moc_topbar.cpp \
+  qt/islamic_digital_coin/moc_txrow.cpp \
+  qt/islamic_digital_coin/moc_dashboardwidget.cpp \
+  qt/islamic_digital_coin/moc_addresslabelrow.cpp \
+  qt/islamic_digital_coin/moc_contactdropdownrow.cpp \
+  qt/islamic_digital_coin/moc_mninfodialog.cpp \
+  qt/islamic_digital_coin/moc_optionbutton.cpp \
+  qt/islamic_digital_coin/moc_coldstakingmodel.cpp \
+  qt/islamic_digital_coin/moc_mnmodel.cpp \
+  qt/islamic_digital_coin/moc_masternodewizarddialog.cpp \
+  qt/islamic_digital_coin/moc_mnrow.cpp \
+  qt/islamic_digital_coin/moc_masternodeswidget.cpp \
+  qt/islamic_digital_coin/moc_myaddressrow.cpp \
+  qt/islamic_digital_coin/moc_csrow.cpp \
+  qt/islamic_digital_coin/moc_contactsdropdown.cpp \
+  qt/islamic_digital_coin/moc_sendchangeaddressdialog.cpp \
+  qt/islamic_digital_coin/moc_sendconfirmdialog.cpp \
+  qt/islamic_digital_coin/moc_sendcustomfeedialog.cpp \
+  qt/islamic_digital_coin/moc_sendmemodialog.cpp \
+  qt/islamic_digital_coin/moc_sendmultirow.cpp \
+  qt/islamic_digital_coin/moc_send.cpp \
+  qt/islamic_digital_coin/moc_addnewaddressdialog.cpp \
+  qt/islamic_digital_coin/moc_addnewcontactdialog.cpp \
+  qt/islamic_digital_coin/moc_requestdialog.cpp \
+  qt/islamic_digital_coin/moc_receivewidget.cpp \
+  qt/islamic_digital_coin/moc_tooltipmenu.cpp \
+  qt/islamic_digital_coin/moc_addresseswidget.cpp \
+  qt/islamic_digital_coin/moc_defaultdialog.cpp \
+  qt/islamic_digital_coin/moc_coldstakingwidget.cpp \
+  qt/islamic_digital_coin/settings/moc_settingsbackupwallet.cpp \
+  qt/islamic_digital_coin/settings/moc_settingsexportcsv.cpp \
+  qt/islamic_digital_coin/settings/moc_settingsbittoolwidget.cpp \
+  qt/islamic_digital_coin/settings/moc_settingsconsolewidget.cpp \
+  qt/islamic_digital_coin/settings/moc_settingsdisplayoptionswidget.cpp \
+  qt/islamic_digital_coin/settings/moc_settingsfaqwidget.cpp \
+  qt/islamic_digital_coin/settings/moc_settingsinformationwidget.cpp \
+  qt/islamic_digital_coin/settings/moc_settingsmainoptionswidget.cpp \
+  qt/islamic_digital_coin/settings/moc_settingsmultisenddialog.cpp \
+  qt/islamic_digital_coin/settings/moc_settingsmultisendwidget.cpp \
+  qt/islamic_digital_coin/settings/moc_settingssignmessagewidgets.cpp \
+  qt/islamic_digital_coin/settings/moc_settingswalletoptionswidget.cpp \
+  qt/islamic_digital_coin/settings/moc_settingswalletrepairwidget.cpp \
+  qt/islamic_digital_coin/settings/moc_settingswidget.cpp \
+  qt/islamic_digital_coin/moc_welcomecontentwidget.cpp \
+  qt/islamic_digital_coin/moc_splash.cpp
+
+BITCOIN_MM = \
+  qt/macdockiconhandler.mm \
+  qt/macnotificationhandler.mm
+
+QT_MOC = \
+  qt/islamic_digital_coin.moc \
+  qt/intro.moc \
+  qt/rpcconsole.moc \
+  qt/islamic_digital_coin/settings/moc_settingsconsolewidget.cpp
+
+QT_QRC_CPP = qt/qrc_islamic_digital_coin.cpp
+QT_QRC = qt/islamic_digital_coin.qrc
+QT_QRC_LOCALE_CPP = qt/qrc_islamic_digital_coin_locale.cpp
+QT_QRC_LOCALE = qt/islamic_digital_coin_locale.qrc
+
+PROTOBUF_CC = qt/paymentrequest.pb.cc
+PROTOBUF_H = qt/paymentrequest.pb.h
+PROTOBUF_PROTO = qt/paymentrequest.proto
+
+BITCOIN_QT_H = \
+  qt/addressbookpage.h \
+  qt/addresstablemodel.h \
+  qt/askpassphrasedialog.h \
+  qt/bantablemodel.h \
+  qt/bitcoinaddressvalidator.h \
+  qt/islamic_digital_coin/islamic_digital_coingui.h \
+  qt/bitcoinunits.h \
+  qt/clientmodel.h \
+  qt/coincontroldialog.h \
+  qt/coincontroltreewidget.h \
+  qt/csvmodelwriter.h \
+  qt/editaddressdialog.h \
+  qt/guiconstants.h \
+  qt/guiutil.h \
+  qt/intro.h \
+  qt/macdockiconhandler.h \
+  qt/macnotificationhandler.h \
+  qt/networkstyle.h \
+  qt/notificator.h \
+  qt/openuridialog.h \
+  qt/optionsdialog.h \
+  qt/optionsmodel.h \
+  qt/paymentrequestplus.h \
+  qt/paymentserver.h \
+  qt/peertablemodel.h \
+  qt/platformstyle.h \
+  qt/qvalidatedlineedit.h \
+  qt/qvaluecombobox.h \
+  qt/recentrequeststablemodel.h \
+  qt/rpcconsole.h \
+  qt/trafficgraphwidget.h \
+  qt/transactionfilterproxy.h \
+  qt/transactionrecord.h \
+  qt/transactiontablemodel.h \
+  qt/utilitydialog.h \
+  qt/walletmodel.h \
+  qt/walletmodeltransaction.h \
+  qt/islamic_digital_coin/prunnable.h \
+  qt/islamic_digital_coin/pfborderimage.h \
+  qt/islamic_digital_coin/loadingdialog.h \
+  qt/winshutdownmonitor.h \
+  qt/islamic_digital_coin/pwidget.h \
+  qt/islamic_digital_coin/focuseddialog.h \
+  qt/islamic_digital_coin/guitransactionsutils.h \
+  qt/islamic_digital_coin/snackbar.h \
+  qt/islamic_digital_coin/navmenuwidget.h \
+  qt/islamic_digital_coin/lockunlock.h \
+  qt/islamic_digital_coin/receivedialog.h \
+  qt/islamic_digital_coin/furlistrow.h \
+  qt/islamic_digital_coin/furabstractlistitemdelegate.h \
+  qt/islamic_digital_coin/txviewholder.h \
+  qt/islamic_digital_coin/qtutils.h \
+  qt/islamic_digital_coin/expandablebutton.h \
+  qt/islamic_digital_coin/balancebubble.h \
+  qt/islamic_digital_coin/topbar.h \
+  qt/islamic_digital_coin/txrow.h \
+  qt/islamic_digital_coin/addressholder.h \
+  qt/islamic_digital_coin/addressfilterproxymodel.h \
+  qt/islamic_digital_coin/dashboardwidget.h \
+  qt/islamic_digital_coin/addresslabelrow.h \
+  qt/islamic_digital_coin/contactdropdownrow.h \
+  qt/islamic_digital_coin/mninfodialog.h \
+  qt/islamic_digital_coin/optionbutton.h \
+  qt/islamic_digital_coin/coldstakingmodel.h \
+  qt/islamic_digital_coin/mnmodel.h \
+  qt/islamic_digital_coin/masternodewizarddialog.h \
+  qt/islamic_digital_coin/mnrow.h \
+  qt/islamic_digital_coin/masternodeswidget.h \
+  qt/islamic_digital_coin/myaddressrow.h \
+  qt/islamic_digital_coin/csrow.h \
+  qt/islamic_digital_coin/contactsdropdown.h \
+  qt/islamic_digital_coin/sendchangeaddressdialog.h \
+  qt/islamic_digital_coin/sendconfirmdialog.h \
+  qt/islamic_digital_coin/sendcustomfeedialog.h \
+  qt/islamic_digital_coin/sendmemodialog.h \
+  qt/islamic_digital_coin/sendmultirow.h \
+  qt/islamic_digital_coin/send.h \
+  qt/islamic_digital_coin/addnewaddressdialog.h \
+  qt/islamic_digital_coin/addnewcontactdialog.h \
+  qt/islamic_digital_coin/requestdialog.h \
+  qt/islamic_digital_coin/receivewidget.h \
+  qt/islamic_digital_coin/tooltipmenu.h \
+  qt/islamic_digital_coin/addresseswidget.h \
+  qt/islamic_digital_coin/defaultdialog.h \
+  qt/islamic_digital_coin/coldstakingwidget.h \
+  qt/islamic_digital_coin/settings/settingsbackupwallet.h \
+  qt/islamic_digital_coin/settings/settingsexportcsv.h \
+  qt/islamic_digital_coin/settings/settingsbittoolwidget.h \
+  qt/islamic_digital_coin/settings/settingsconsolewidget.h \
+  qt/islamic_digital_coin/settings/settingsdisplayoptionswidget.h \
+  qt/islamic_digital_coin/settings/settingsfaqwidget.h \
+  qt/islamic_digital_coin/settings/settingsinformationwidget.h \
+  qt/islamic_digital_coin/settings/settingsmainoptionswidget.h \
+  qt/islamic_digital_coin/settings/settingsmultisenddialog.h \
+  qt/islamic_digital_coin/settings/settingsmultisendwidget.h \
+  qt/islamic_digital_coin/settings/settingssignmessagewidgets.h \
+  qt/islamic_digital_coin/settings/settingswalletoptionswidget.h \
+  qt/islamic_digital_coin/settings/settingswalletrepairwidget.h \
+  qt/islamic_digital_coin/settings/settingswidget.h \
+  qt/islamic_digital_coin/welcomecontentwidget.h \
+  qt/islamic_digital_coin/splash.h
+
+RES_ICONS = \
+  qt/res/icons/bitcoin.ico \
+  qt/res/icons/bitcoin.png \
+  qt/res/icons/bitcoin_testnet.ico \
+  qt/res/icons/bitcoin_testnet.png \
+  qt/res/icons/bitcoin_regtest.png \
+  qt/res/icons/lock_closed.png \
+  qt/res/icons/lock_open.png \
+  qt/res/icons/overview.png \
+  qt/res/icons/ic-transaction-received.png \
+  qt/res/icons/ic-transaction-mint.png \
+  qt/res/icons/ic-transaction-sent.png \
+  qt/res/icons/ic-transaction-staked.png \
+  qt/islamic_digital_coin/res/img/bg-dashboard-banner.png \
+  qt/islamic_digital_coin/res/img/bg-multi-number-dark.png \
+  qt/islamic_digital_coin/res/img/ic-check-locked.png \
+  qt/islamic_digital_coin/res/img/ic-nav-address.png \
+  qt/islamic_digital_coin/res/img/ic-update.png \
+  qt/islamic_digital_coin/res/img/bg-multi-number.png \
+  qt/islamic_digital_coin/res/img/ic-check-mint-off.png \
+  qt/islamic_digital_coin/res/img/ic-nav-cold-staking.png \
+  qt/islamic_digital_coin/res/img/ic-nav-cold-staking-active.png \
+  qt/islamic_digital_coin/res/img/ic-nav-dashboard-active.png \
+  qt/islamic_digital_coin/res/img/ic-wallet-status-locked.png \
+  qt/islamic_digital_coin/res/img/bg-splash.png \
+  qt/islamic_digital_coin/res/img/ic-check-mint.png \
+  qt/islamic_digital_coin/res/img/ic-nav-dashboard-hover.png \
+  qt/islamic_digital_coin/res/img/ic-wallet-status-staking.png \
+  qt/islamic_digital_coin/res/img/ic-check-peers-off.png \
+  qt/islamic_digital_coin/res/img/ic-nav-dashboard.png \
+  qt/islamic_digital_coin/res/img/ic-wallet-status-unlocked.png \
+  qt/islamic_digital_coin/res/img/ic-check-peers.png \
+  qt/islamic_digital_coin/res/img/ic-nav-master-active.png \
+  qt/islamic_digital_coin/res/img/ic-watch-password-white.png \
+  qt/islamic_digital_coin/res/img/bg-welcome-container.jpg \
+  qt/islamic_digital_coin/res/img/bg-welcome-container.png \
+  qt/islamic_digital_coin/res/img/bg-welcome-container@2x.png \
+  qt/islamic_digital_coin/res/img/bg-welcome-container@3x.png \
+  qt/islamic_digital_coin/res/img/ic-check-staking-off.png \
+  qt/islamic_digital_coin/res/img/ic-nav-master-hover.png \
+  qt/islamic_digital_coin/res/img/ic-watch-password.png \
+  qt/islamic_digital_coin/res/img/bg-welcome.jpg \
+  qt/islamic_digital_coin/res/img/bg-welcome.png \
+  qt/islamic_digital_coin/res/img/bg-welcome@2x.jpg \
+  qt/islamic_digital_coin/res/img/bg-welcome@3x.jpg \
+  qt/islamic_digital_coin/res/img/ic-check-staking.png \
+  qt/islamic_digital_coin/res/img/ic-nav-master.png \
+  qt/islamic_digital_coin/res/img/btn-radio-active.png \
+  qt/islamic_digital_coin/res/img/ic-check-sync-off.png \
+  qt/islamic_digital_coin/res/img/ic-nav-privacy-active.png \
+  qt/islamic_digital_coin/res/img/img-empty-contacts.png \
+  qt/islamic_digital_coin/res/img/btn-radio-off.png \
+  qt/islamic_digital_coin/res/img/ic-check-sync.png \
+  qt/islamic_digital_coin/res/img/ic-nav-privacy-hover.png \
+  qt/islamic_digital_coin/res/img/img-empty-dark-contacts.png \
+  qt/islamic_digital_coin/res/img/ic-contact-arrow-down.png \
+  qt/islamic_digital_coin/res/img/ic-contact-arrow-down-white.png \
+  qt/islamic_digital_coin/res/img/ic-check-sync.png \
+  qt/islamic_digital_coin/res/img/ic-check-faq.png \
+  qt/islamic_digital_coin/res/img/ic-nav-privacy.png \
+  qt/islamic_digital_coin/res/img/img-empty-dark-error.png \
+  qt/islamic_digital_coin/res/img/ic-add-label.png \
+  qt/islamic_digital_coin/res/img/ic-pending.png \
+  qt/islamic_digital_coin/res/img/ic-check-theme-dark.png \
+  qt/islamic_digital_coin/res/img/ic-nav-receive-active.png \
+  qt/islamic_digital_coin/res/img/img-empty-dark-masternode.png \
+  qt/islamic_digital_coin/res/img/ic-add-liliac.png \
+  qt/islamic_digital_coin/res/img/ic-check-theme-light.png \
+  qt/islamic_digital_coin/res/img/ic-nav-receive-hover.png \
+  qt/islamic_digital_coin/res/img/img-empty-dark-multisend.png \
+  qt/islamic_digital_coin/res/img/ic-add-purple.png \
+  qt/islamic_digital_coin/res/img/ic-check-white.png \
+  qt/islamic_digital_coin/res/img/ic-nav-receive.png \
+  qt/islamic_digital_coin/res/img/img-empty-dark-peers.png \
+  qt/islamic_digital_coin/res/img/ic-add.png \
+  qt/islamic_digital_coin/res/img/ic-check.png \
+  qt/islamic_digital_coin/res/img/ic-nav-send-active.png \
+  qt/islamic_digital_coin/res/img/img-empty-dark-staking-off.png \
+  qt/islamic_digital_coin/res/img/img-empty-dark-staking-on.png \
+  qt/islamic_digital_coin/res/img/ic-address-book-grey.png \
+  qt/islamic_digital_coin/res/img/ic-chevron-left.png \
+  qt/islamic_digital_coin/res/img/ic-nav-send-hover.png \
+  qt/islamic_digital_coin/res/img/img-empty-dark-transactions.png \
+  qt/islamic_digital_coin/res/img/ic-address-book-white.png \
+  qt/islamic_digital_coin/res/img/ic-chevron-right.png \
+  qt/islamic_digital_coin/res/img/ic-chevron-right-liliac.png \
+  qt/islamic_digital_coin/res/img/ic-nav-send.png \
+  qt/islamic_digital_coin/res/img/img-empty-error.png \
+  qt/islamic_digital_coin/res/img/ic-address-book.png \
+  qt/islamic_digital_coin/res/img/ic-clear-liliac.png \
+  qt/islamic_digital_coin/res/img/ic-nav-settings-active.png \
+  qt/islamic_digital_coin/res/img/img-empty-masternode.png \
+  qt/islamic_digital_coin/res/img/ic-address-send-white.png \
+  qt/islamic_digital_coin/res/img/ic-clear-purple.png \
+  qt/islamic_digital_coin/res/img/ic-nav-settings-hover.png \
+  qt/islamic_digital_coin/res/img/img-empty-multisend.png \
+  qt/islamic_digital_coin/res/img/ic-address-send.png \
+  qt/islamic_digital_coin/res/img/ic-close-white.png \
+  qt/islamic_digital_coin/res/img/ic-nav-settings.png \
+  qt/islamic_digital_coin/res/img/img-empty-peers.png \
+  qt/islamic_digital_coin/res/img/img-empty-privacy.png \
+  qt/islamic_digital_coin/res/img/img-empty-privacy-dark.png \
+  qt/islamic_digital_coin/res/img/ic-arrow-drop-down-white.png \
+  qt/islamic_digital_coin/res/img/ic-close.png \
+  qt/islamic_digital_coin/res/img/ic-radio-liliac-on.png \
+  qt/islamic_digital_coin/res/img/img-empty-staking-off.png \
+  qt/islamic_digital_coin/res/img/ic-arrow-drop-down.png \
+  qt/islamic_digital_coin/res/img/ic-coin-idc.png \
+  qt/islamic_digital_coin/res/img/ic-receive-off.png \
+  qt/islamic_digital_coin/res/img/img-empty-staking-on.png \
+  qt/islamic_digital_coin/res/img/ic-arrow-drop-up-white.png \
+  qt/islamic_digital_coin/res/img/ic-receive-on.png \
+  qt/islamic_digital_coin/res/img/img-empty-transactions.png \
+  qt/islamic_digital_coin/res/img/ic-arrow-drop-up.png \
+  qt/islamic_digital_coin/res/img/ic-received.png \
+  qt/islamic_digital_coin/res/img/img-logo-islamic_digital_coin.png \
+  qt/islamic_digital_coin/res/img/ic-arrow-drop-white-down.png \
+  qt/islamic_digital_coin/res/img/ic-combo-box.png \
+  qt/islamic_digital_coin/res/img/ic-send.png \
+  qt/islamic_digital_coin/res/img/img-logo-islamic_digital_coin@2x.png \
+  qt/islamic_digital_coin/res/img/ic-arrow-purple-down.png \
+  qt/islamic_digital_coin/res/img/ic-connect.png \
+  qt/islamic_digital_coin/res/img/ic-submenu-lock.png \
+  qt/islamic_digital_coin/res/img/img-logo-islamic_digital_coin@3x.png \
+  qt/islamic_digital_coin/res/img/img-logo-islamic_digital_coin.png \
+  qt/islamic_digital_coin/res/img/ic-arrow-right-white.png \
+  qt/islamic_digital_coin/res/img/ic-arrow-left-white.png \
+  qt/islamic_digital_coin/res/img/ic-arrow-left.png \
+  qt/islamic_digital_coin/res/img/ic-copy-liliac.png \
+  qt/islamic_digital_coin/res/img/ic-submenu-staking.png \
+  qt/islamic_digital_coin/res/img/img-nav-logo-islamic_digital_coin.png \
+  qt/islamic_digital_coin/res/img/ic-arrow-right.png \
+  qt/islamic_digital_coin/res/img/ic-copy.png \
+  qt/islamic_digital_coin/res/img/ic-copy-big.png \
+  qt/islamic_digital_coin/res/img/ic-copy-big-white.png \
+  qt/islamic_digital_coin/res/img/ic-submenu-unlock.png \
+  qt/islamic_digital_coin/res/img/img-nav-logo.png \
+  qt/islamic_digital_coin/res/img/ic-arrow-white-left.png \
+  qt/islamic_digital_coin/res/img/ic-exit.png \
+  qt/islamic_digital_coin/res/img/ic-switch-liliac-on.png \
+  qt/islamic_digital_coin/res/img/img-nav-logo.png \
+  qt/islamic_digital_coin/res/img/ic-arrow-white-right.png \
+  qt/islamic_digital_coin/res/img/ic-expand.png \
+  qt/islamic_digital_coin/res/img/ic-switch-off.png \
+  qt/islamic_digital_coin/res/img/img-qr-test-big.png \
+  qt/islamic_digital_coin/res/img/ic-check-active.png \
+  qt/islamic_digital_coin/res/img/ic-folder.png \
+  qt/islamic_digital_coin/res/img/ic-switch-on.png \
+  qt/islamic_digital_coin/res/img/img-qr-test.png \
+  qt/islamic_digital_coin/res/img/ic-check-box.png \
+  qt/islamic_digital_coin/res/img/ic-check-box-dark-active.png \
+  qt/islamic_digital_coin/res/img/ic-check-box-indeterminate.png \
+  qt/islamic_digital_coin/res/img/ic-check-box-liliac-indeterminate.png \
+  qt/islamic_digital_coin/res/img/ic-label-liliac.png \
+  qt/islamic_digital_coin/res/img/ic-transaction-warning.png \
+  qt/islamic_digital_coin/res/img/ic-transaction-mint.png \
+  qt/islamic_digital_coin/res/img/ic-transaction-mint-inactive.png \
+  qt/islamic_digital_coin/res/img/ic-check-cold-staking.png \
+  qt/islamic_digital_coin/res/img/ic-check-cold-staking-off.png \
+  qt/islamic_digital_coin/res/img/ic-check-cold-staking-enabled.png \
+  qt/islamic_digital_coin/res/img/dark/ic-transaction-cs-contract.png \
+  qt/islamic_digital_coin/res/img/dark/ic-transaction-cs-contract-inactive.png \
+  qt/islamic_digital_coin/res/img/img-qr.png \
+  qt/islamic_digital_coin/res/img/ic-check-connect-off.png \
+  qt/islamic_digital_coin/res/img/ic-check-tor-off.png \
+  qt/islamic_digital_coin/res/img/ic-check-tor.png \
+  qt/islamic_digital_coin/res/img/ic-label.png \
+  qt/islamic_digital_coin/res/img/ic-transaction-received.png \
+  qt/islamic_digital_coin/res/img/dark/ic-transaction-received.png \
+  qt/islamic_digital_coin/res/img/dark/ic-transaction-warning.png \
+  qt/islamic_digital_coin/res/img/dark/ic-transaction-mint.png \
+  qt/islamic_digital_coin/res/img/dark/ic-transaction-mint-inactive.png \
+  qt/islamic_digital_coin/res/img/ic-transaction-received-inactive.png \
+  qt/islamic_digital_coin/res/img/dark/ic-transaction-received-inactive.png \
+  qt/islamic_digital_coin/res/img/img-welcome-step1.png \
+  qt/islamic_digital_coin/res/img/ic-check-connect.png \
+  qt/islamic_digital_coin/res/img/ic-menu-hover.png \
+  qt/islamic_digital_coin/res/img/ic-transaction-sent.png \
+  qt/islamic_digital_coin/res/img/ic-transaction-sent-inactive.png \
+  qt/islamic_digital_coin/res/img/dark/ic-transaction-sent.png \
+  qt/islamic_digital_coin/res/img/dark/ic-transaction-sent-inactive.png \
+  qt/islamic_digital_coin/res/img/img-welcome-step2.png \
+  qt/islamic_digital_coin/res/img/ic-check-dark.png \
+  qt/islamic_digital_coin/res/img/ic-mint.png \
+  qt/islamic_digital_coin/res/img/ic-transaction-staked.png \
+  qt/islamic_digital_coin/res/img/ic-transaction-staked-inactive.png \
+  qt/islamic_digital_coin/res/img/dark/ic-transaction-staked.png \
+  qt/islamic_digital_coin/res/img/dark/ic-transaction-staked-inactive.png \
+  qt/islamic_digital_coin/res/img/img-welcome-step3.png \
+  qt/islamic_digital_coin/res/img/ic-check-liliac-on.png \
+  qt/islamic_digital_coin/res/img/ic-nav-address-active.png \
+  qt/islamic_digital_coin/res/img/ic-unlock-staking.png \
+  qt/islamic_digital_coin/res/img/img-welcome-step4.png \
+  qt/islamic_digital_coin/res/img/ic-check-locked-off.png \
+  qt/islamic_digital_coin/res/img/ic-nav-address-hover.png \
+  qt/islamic_digital_coin/res/img/ic-update-liliac.png \
+  qt/islamic_digital_coin/res/img/ic-arrow-drop-down-purple.png \
+  qt/islamic_digital_coin/res/img/ic-arrow-drop-up-purple.png \
+  qt/islamic_digital_coin/res/img/ic-check-liliac-indeterminate.png \
+  qt/islamic_digital_coin/res/img/ic-check-box-liliac-indeterminate.png \
+  qt/islamic_digital_coin/res/img/ic-transaction-stake-delegated.png \
+  qt/islamic_digital_coin/res/img/ic-transaction-stake-delegated-inactive.png \
+  qt/islamic_digital_coin/res/img/ic-transaction-stake-hot.png \
+  qt/islamic_digital_coin/res/img/ic-transaction-stake-hot-inactive.png \
+  qt/islamic_digital_coin/res/img/dark/ic-transaction-stake-hot.png \
+  qt/islamic_digital_coin/res/img/dark/ic-transaction-stake-hot-inactive.png \
+  qt/islamic_digital_coin/res/img/dark/ic-transaction-stake-delegated.png \
+  qt/islamic_digital_coin/res/img/dark/ic-transaction-stake-delegated-inactive.png \
+  qt/islamic_digital_coin/res/img/ic-transaction-cs-contract.png \
+  qt/islamic_digital_coin/res/img/ic-transaction-cs-contract-inactive.png \
+  qt/islamic_digital_coin/res/img/ic-check-box-indeterminate.png \
+  qt/islamic_digital_coin/res/img/ic-information.png \
+  qt/islamic_digital_coin/res/img/ic-information-hover.png \
+  qt/islamic_digital_coin/res/img/ani-loading-dark.gif \
+  qt/islamic_digital_coin/res/img/ani-loading.gif
+
+BITCOIN_QT_BASE_CPP = \
+  qt/bantablemodel.cpp \
+  qt/bitcoinaddressvalidator.cpp \
+  qt/islamic_digital_coin/islamic_digital_coingui.cpp \
+  qt/bitcoinunits.cpp \
+  qt/clientmodel.cpp \
+  qt/csvmodelwriter.cpp \
+  qt/guiutil.cpp \
+  qt/intro.cpp \
+  qt/networkstyle.cpp \
+  qt/notificator.cpp \
+  qt/optionsdialog.cpp \
+  qt/optionsmodel.cpp \
+  qt/peertablemodel.cpp \
+  qt/platformstyle.cpp \
+  qt/qvalidatedlineedit.cpp \
+  qt/qvaluecombobox.cpp \
+  qt/rpcconsole.cpp \
+  qt/trafficgraphwidget.cpp \
+  qt/utilitydialog.cpp
+
+BITCOIN_QT_WINDOWS_CPP = qt/winshutdownmonitor.cpp
+
+BITCOIN_QT_WALLET_CPP = \
+  qt/addressbookpage.cpp \
+  qt/addresstablemodel.cpp \
+  qt/askpassphrasedialog.cpp \
+  qt/coincontroldialog.cpp \
+  qt/coincontroltreewidget.cpp \
+  qt/editaddressdialog.cpp \
+  qt/openuridialog.cpp \
+  qt/paymentrequestplus.cpp \
+  qt/paymentserver.cpp \
+  qt/recentrequeststablemodel.cpp \
+  qt/transactionfilterproxy.cpp \
+  qt/transactionrecord.cpp \
+  qt/transactiontablemodel.cpp \
+  qt/walletmodel.cpp \
+  qt/walletmodeltransaction.cpp \
+  qt/islamic_digital_coin/loadingdialog.cpp \
+  qt/islamic_digital_coin/pwidget.cpp \
+  qt/islamic_digital_coin/focuseddialog.cpp \
+  qt/islamic_digital_coin/guitransactionsutils.cpp \
+  qt/islamic_digital_coin/snackbar.cpp \
+  qt/islamic_digital_coin/navmenuwidget.cpp \
+  qt/islamic_digital_coin/lockunlock.cpp \
+  qt/islamic_digital_coin/receivedialog.cpp \
+  qt/islamic_digital_coin/furabstractlistitemdelegate.cpp \
+  qt/islamic_digital_coin/txviewholder.cpp \
+  qt/islamic_digital_coin/qtutils.cpp \
+  qt/islamic_digital_coin/expandablebutton.cpp \
+  qt/islamic_digital_coin/balancebubble.cpp \
+  qt/islamic_digital_coin/topbar.cpp \
+  qt/islamic_digital_coin/txrow.cpp \
+  qt/islamic_digital_coin/addressholder.cpp \
+  qt/islamic_digital_coin/addressfilterproxymodel.cpp \
+  qt/islamic_digital_coin/dashboardwidget.cpp \
+  qt/islamic_digital_coin/addresslabelrow.cpp \
+  qt/islamic_digital_coin/contactdropdownrow.cpp \
+  qt/islamic_digital_coin/contactsdropdown.cpp \
+  qt/islamic_digital_coin/optionbutton.cpp \
+  qt/islamic_digital_coin/mninfodialog.cpp \
+  qt/islamic_digital_coin/coldstakingmodel.cpp \
+  qt/islamic_digital_coin/mnmodel.cpp \
+  qt/islamic_digital_coin/masternodewizarddialog.cpp \
+  qt/islamic_digital_coin/mnrow.cpp \
+  qt/islamic_digital_coin/masternodeswidget.cpp \
+  qt/islamic_digital_coin/myaddressrow.cpp \
+  qt/islamic_digital_coin/csrow.cpp \
+  qt/islamic_digital_coin/sendchangeaddressdialog.cpp \
+  qt/islamic_digital_coin/sendconfirmdialog.cpp \
+  qt/islamic_digital_coin/sendcustomfeedialog.cpp \
+  qt/islamic_digital_coin/sendmemodialog.cpp \
+  qt/islamic_digital_coin/sendmultirow.cpp \
+  qt/islamic_digital_coin/send.cpp \
+  qt/islamic_digital_coin/addnewaddressdialog.cpp \
+  qt/islamic_digital_coin/addnewcontactdialog.cpp \
+  qt/islamic_digital_coin/requestdialog.cpp \
+  qt/islamic_digital_coin/receivewidget.cpp \
+  qt/islamic_digital_coin/tooltipmenu.cpp \
+  qt/islamic_digital_coin/addresseswidget.cpp \
+  qt/islamic_digital_coin/defaultdialog.cpp \
+  qt/islamic_digital_coin/coldstakingwidget.cpp \
+  qt/islamic_digital_coin/settings/settingsbackupwallet.cpp \
+  qt/islamic_digital_coin/settings/settingsexportcsv.cpp \
+  qt/islamic_digital_coin/settings/settingsbittoolwidget.cpp \
+  qt/islamic_digital_coin/settings/settingsconsolewidget.cpp \
+  qt/islamic_digital_coin/settings/settingsdisplayoptionswidget.cpp \
+  qt/islamic_digital_coin/settings/settingsfaqwidget.cpp \
+  qt/islamic_digital_coin/settings/settingsinformationwidget.cpp \
+  qt/islamic_digital_coin/settings/settingsmainoptionswidget.cpp \
+  qt/islamic_digital_coin/settings/settingsmultisenddialog.cpp \
+  qt/islamic_digital_coin/settings/settingsmultisendwidget.cpp \
+  qt/islamic_digital_coin/settings/settingssignmessagewidgets.cpp \
+  qt/islamic_digital_coin/settings/settingswalletoptionswidget.cpp \
+  qt/islamic_digital_coin/settings/settingswalletrepairwidget.cpp \
+  qt/islamic_digital_coin/settings/settingswidget.cpp \
+  qt/islamic_digital_coin/welcomecontentwidget.cpp \
+  qt/islamic_digital_coin/splash.cpp
+
+
+BITCOIN_QT_CPP = $(BITCOIN_QT_BASE_CPP)
+if TARGET_WINDOWS
+BITCOIN_QT_CPP += $(BITCOIN_QT_WINDOWS_CPP)
+endif
+if ENABLE_WALLET
+BITCOIN_QT_CPP += $(BITCOIN_QT_WALLET_CPP)
+endif
+
+RES_IMAGES = \
+  qt/res/images/about.png \
+  qt/res/images/splash.png \
+  qt/res/images/splash_testnet.png \
+  qt/res/images/splash_regtest.png
+
+RES_CSS = \
+  qt/res/css/default.css \
+  qt/islamic_digital_coin/res/css/style_dark.css \
+  qt/islamic_digital_coin/res/css/style_light.css
+
+BITCOIN_RC = qt/res/islamic_digital_coin-qt-res.rc
+
+BITCOIN_QT_INCLUDES = -I$(builddir)/qt -I$(srcdir)/qt -I$(srcdir)/qt/forms \
+  -I$(builddir)/qt/forms -DQT_NO_KEYWORDS
+
+qt_libbitcoinqt_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES) $(BITCOIN_QT_INCLUDES) \
+  $(QT_INCLUDES) $(QT_DBUS_INCLUDES) $(PROTOBUF_CFLAGS) $(QR_CFLAGS) $(SVG_CFLAGS) $(CHARTS_CFLAGS)
+qt_libbitcoinqt_a_CXXFLAGS = $(AM_CXXFLAGS) $(QT_PIE_FLAGS)
+qt_libbitcoinqt_a_OBJCXXFLAGS = $(AM_OBJCXXFLAGS) $(QT_PIE_FLAGS)
+
+qt_libbitcoinqt_a_SOURCES = $(BITCOIN_QT_CPP) $(BITCOIN_QT_H) $(QT_FORMS_UI) \
+  $(QT_QRC) $(QT_QRC_LOCALE) $(QT_TS) $(PROTOBUF_PROTO) $(RES_ICONS) $(RES_IMAGES) $(RES_CSS)
+
+nodist_qt_libbitcoinqt_a_SOURCES = $(QT_MOC_CPP) $(QT_MOC) $(PROTOBUF_CC) \
+  $(PROTOBUF_H) $(QT_QRC_CPP) $(QT_QRC_LOCALE_CPP)
+
+# forms/foo.h -> forms/ui_foo.h
+QT_FORMS_H=$(join $(dir $(QT_FORMS_UI)),$(addprefix ui_, $(notdir $(QT_FORMS_UI:.ui=.h))))
+
+# Most files will depend on the forms and moc files as includes. Generate them
+# before anything else.
+$(QT_MOC): $(QT_FORMS_H)
+$(qt_libbitcoinqt_a_OBJECTS) $(qt_islamic_digital_coin_qt_OBJECTS) : | $(QT_MOC)
+
+#Generating these with a half-written protobuf header leads to wacky results.
+#This makes sure it's done.
+$(QT_MOC): $(PROTOBUF_H)
+$(QT_MOC_CPP): $(PROTOBUF_H)
+
+# islamic_digital_coin-qt binary #
+qt_islamic_digital_coin_qt_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES) $(BITCOIN_QT_INCLUDES) \
+  $(QT_INCLUDES) $(PROTOBUF_CFLAGS) $(QR_CFLAGS) $(SVG_CFLAGS) $(CHARTS_CFLAGS)
+qt_islamic_digital_coin_qt_CXXFLAGS = $(AM_CXXFLAGS) $(QT_PIE_FLAGS)
+
+qt_islamic_digital_coin_qt_SOURCES = qt/islamic_digital_coin.cpp
+if TARGET_DARWIN
+  qt_islamic_digital_coin_qt_SOURCES += $(BITCOIN_MM)
+endif
+if TARGET_WINDOWS
+  qt_islamic_digital_coin_qt_SOURCES += $(BITCOIN_RC)
+endif
+qt_islamic_digital_coin_qt_LDADD = qt/libbitcoinqt.a $(LIBBITCOIN_SERVER)
+if ENABLE_WALLET
+qt_islamic_digital_coin_qt_LDADD += $(LIBBITCOIN_UTIL) $(LIBBITCOIN_WALLET)
+endif
+if ENABLE_ZMQ
+qt_islamic_digital_coin_qt_LDADD += $(LIBBITCOIN_ZMQ) $(ZMQ_LIBS)
+endif
+qt_islamic_digital_coin_qt_LDADD += $(LIBBITCOIN_CLI) $(LIBBITCOIN_COMMON) $(LIBBITCOIN_UTIL) $(LIBBITCOIN_CRYPTO) $(LIBUNIVALUE) $(LIBSAPLING) $(LIBRUSTZCASH) $(LIBZCASH_LIBS) $(LIBLEVELDB) $(LIBLEVELDB_SSE42) $(LIBMEMENV) \
+  $(BOOST_LIBS) $(QT_LIBS) $(QT_DBUS_LIBS) $(QR_LIBS) $(PROTOBUF_LIBS) $(SVG_LIBS) $(CHARTS_LIBS) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(MINIUPNPC_LIBS) $(LIBSECP256K1) \
+  $(EVENT_PTHREADS_LIBS) $(EVENT_LIBS)
+qt_islamic_digital_coin_qt_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(QT_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+qt_islamic_digital_coin_qt_LIBTOOLFLAGS = $(AM_LIBTOOLFLAGS) --tag CXX
+
+#locale/foo.ts -> locale/foo.qm
+QT_QM=$(QT_TS:.ts=.qm)
+
+SECONDARY: $(QT_QM)
+
+$(srcdir)/qt/islamic_digital_coinstrings.cpp: $(libbitcoin_server_a_SOURCES) $(libbitcoin_wallet_a_SOURCES) $(libbitcoin_common_a_SOURCES) $(libbitcoin_zmq_a_SOURCES) $(libbitcoin_util_a_SOURCES)
+	@test -n $(XGETTEXT) || echo "xgettext is required for updating translations"
+	$(AM_V_GEN) cd $(srcdir); XGETTEXT=$(XGETTEXT) PACKAGE_NAME="$(PACKAGE_NAME)" $(PYTHON) ../share/qt/extract_strings_qt.py $^
+
+translate: $(srcdir)/qt/islamic_digital_coinstrings.cpp $(QT_FORMS_UI) $(QT_FORMS_UI) $(BITCOIN_QT_BASE_CPP) qt/islamic_digital_coin.cpp $(BITCOIN_QT_WINDOWS_CPP) $(BITCOIN_QT_WALLET_CPP) $(BITCOIN_QT_H) $(BITCOIN_MM)
+	@test -n $(LUPDATE) || echo "lupdate is required for updating translations"
+	$(AM_V_GEN) QT_SELECT=$(QT_SELECT) $(LUPDATE) $^ -locations relative -no-obsolete -ts $(srcdir)/qt/locale/islamic_digital_coin_en.ts
+
+$(QT_QRC_LOCALE_CPP): $(QT_QRC_LOCALE) $(QT_QM)
+	@test -f $(RCC)
+	@cp -f $< $(@D)/temp_$(<F)
+	$(AM_V_GEN) QT_SELECT=$(QT_SELECT) $(RCC) -name islamic_digital_coin_locale $(@D)/temp_$(<F) | \
+	  $(SED) -e '/^\*\*.*Created:/d' -e '/^\*\*.*by:/d' > $@
+	@rm $(@D)/temp_$(<F)
+
+$(QT_QRC_CPP): $(QT_QRC) $(QT_FORMS_H) $(RES_ICONS) $(RES_IMAGES) $(RES_CSS) $(PROTOBUF_H)
+	@test -f $(RCC)
+	$(AM_V_GEN) QT_SELECT=$(QT_SELECT) $(RCC) -name islamic_digital_coin $< | \
+	  $(SED) -e '/^\*\*.*Created:/d' -e '/^\*\*.*by:/d' > $@
+
+CLEAN_QT = $(nodist_qt_libbitcoinqt_a_SOURCES) $(QT_QM) $(QT_FORMS_H) qt/*.gcda qt/*.gcno qt/islamic_digital_coin/*.gcda qt/islamic_digital_coin/*.gcno qt/islamic_digital_coin/settings/*.gcda qt/islamic_digital_coin/settings/*.gcno qt/temp_islamic_digital_coin_locale.qrc
+
+CLEANFILES += $(CLEAN_QT)
+
+islamic_digital_coin_qt_clean: FORCE
+	rm -f $(CLEAN_QT) $(qt_libbitcoinqt_a_OBJECTS) $(qt_islamic_digital_coin_qt_OBJECTS) qt/islamic_digital_coin-qt$(EXEEXT) $(LIBBITCOINQT)
+
+islamic_digital_coin_qt : qt/islamic_digital_coin-qt$(EXEEXT)
+
+ui_%.h: %.ui
+	@test -f $(UIC)
+	@$(MKDIR_P) $(@D)
+	$(AM_V_GEN) QT_SELECT=$(QT_SELECT) $(UIC) -o $@ $< || (echo "Error creating $@"; false)
+
+%.moc: %.cpp
+	$(AM_V_GEN) QT_SELECT=$(QT_SELECT) $(MOC) $(DEFAULT_INCLUDES) $(QT_INCLUDES) $(MOC_DEFS) $< | \
+	  $(SED) -e '/^\*\*.*Created:/d' -e '/^\*\*.*by:/d' > $@
+
+moc_%.cpp: %.h
+	$(AM_V_GEN) QT_SELECT=$(QT_SELECT) $(MOC) $(DEFAULT_INCLUDES) $(QT_INCLUDES) $(MOC_DEFS) $< | \
+	  $(SED) -e '/^\*\*.*Created:/d' -e '/^\*\*.*by:/d' > $@
+
+%.qm: %.ts
+	@test -f $(LRELEASE)
+	@$(MKDIR_P) $(@D)
+	$(AM_V_GEN) QT_SELECT=$(QT_SELECT) $(LRELEASE) -silent $< -qm $@

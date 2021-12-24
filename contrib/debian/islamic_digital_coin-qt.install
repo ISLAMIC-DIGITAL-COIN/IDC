@@ -1,0 +1,6 @@
+usr/local/bin/islamic_digital_coin-qt usr/bin
+share/pixmaps/islamic_digital_coin32.xpm usr/share/pixmaps
+share/pixmaps/islamic_digital_coin16.xpm usr/share/pixmaps
+share/pixmaps/islamic_digital_coin128.png usr/share/pixmaps
+debian/islamic_digital_coin-qt.desktop usr/share/applications
+debian/islamic_digital_coin-qt.protocol usr/share/kde4/services/

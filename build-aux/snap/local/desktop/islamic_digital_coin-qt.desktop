@@ -1,0 +1,15 @@
+# http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spec-1.0.html
+
+[Desktop Entry]
+Encoding=UTF-8
+Name=ISLAMIC DIGITAL COIN
+Comment=ISLAMIC DIGITAL COIN QT main network
+GenericName=ISLAMIC_DIGITAL_COIN Digital Currency QT client main network
+Exec=islamic_digital_coin-core.qt %u
+Terminal=false
+Type=Application
+Icon=${SNAP}/share/pixmaps/islamic_digital_coin.png
+MimeType=x-scheme-handler/islamic_digital_coin;
+Categories=X-Office;X-Finance;
+Keywords=internet;islamic_digital_coin;idc;core;wallet;qt;main;snap;launchpad;crypto;digital;currency;coin;token;
+Version=1.0

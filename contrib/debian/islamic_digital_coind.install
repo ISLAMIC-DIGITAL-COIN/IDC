@@ -1,0 +1,3 @@
+usr/local/bin/islamic_digital_coind usr/bin
+usr/local/bin/islamic_digital_coin-cli usr/bin
+debian/examples/islamic_digital_coin.conf etc/islamic_digital_coin

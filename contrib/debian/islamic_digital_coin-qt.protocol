@@ -1,0 +1,11 @@
+[Protocol]
+exec=islamic_digital_coin-qt '%u'
+protocol=islamic_digital_coin
+input=none
+output=none
+helper=true
+listing=
+reading=false
+writing=false
+makedir=false
+deleting=false

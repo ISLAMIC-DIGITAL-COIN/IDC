@@ -1,0 +1,81 @@
+policy_module(islamic_digital_coin, 1.100.1)
+
+########################################
+#
+# Declarations
+#
+
+type islamic_digital_coin_t;
+type islamic_digital_coin_exec_t;
+init_daemon_domain(islamic_digital_coin_t, islamic_digital_coin_exec_t)
+
+permissive islamic_digital_coin_t;
+
+type islamic_digital_coin_initrc_exec_t;
+init_script_file(islamic_digital_coin_initrc_exec_t)
+
+type islamic_digital_coin_conf_t;
+files_type(islamic_digital_coin_conf_t)
+
+type islamic_digital_coin_var_lib_t;
+files_type(islamic_digital_coin_var_lib_t)
+
+type islamic_digital_coin_var_run_t;
+files_type(islamic_digital_coin_var_run_t)
+
+type islamic_digital_coin_port_t;
+corenet_port(islamic_digital_coin_port_t)
+
+########################################
+#
+# islamic_digital_coin local policy
+#
+allow islamic_digital_coin_t self:process { fork };
+
+allow islamic_digital_coin_t self:fifo_file rw_fifo_file_perms;
+allow islamic_digital_coin_t self:unix_stream_socket create_stream_socket_perms;
+
+manage_dirs_pattern(islamic_digital_coin_t, islamic_digital_coin_conf_t, islamic_digital_coin_conf_t)
+manage_files_pattern(islamic_digital_coin_t, islamic_digital_coin_conf_t, islamic_digital_coin_conf_t)
+
+manage_dirs_pattern(islamic_digital_coin_t, islamic_digital_coin_var_lib_t, islamic_digital_coin_var_lib_t)
+manage_files_pattern(islamic_digital_coin_t, islamic_digital_coin_var_lib_t, islamic_digital_coin_var_lib_t)
+files_var_lib_filetrans(islamic_digital_coin_t, islamic_digital_coin_var_lib_t, { dir file })
+
+manage_dirs_pattern(islamic_digital_coin_t, islamic_digital_coin_var_run_t, islamic_digital_coin_var_run_t)
+manage_files_pattern(islamic_digital_coin_t, islamic_digital_coin_var_run_t, islamic_digital_coin_var_run_t)
+
+sysnet_dns_name_resolve(islamic_digital_coin_t)
+corenet_all_recvfrom_unlabeled(islamic_digital_coin_t)
+
+allow islamic_digital_coin_t self:tcp_socket create_stream_socket_perms;
+corenet_tcp_sendrecv_generic_if(islamic_digital_coin_t)
+corenet_tcp_sendrecv_generic_node(islamic_digital_coin_t)
+corenet_tcp_sendrecv_all_ports(islamic_digital_coin_t)
+corenet_tcp_bind_generic_node(islamic_digital_coin_t)
+
+gen_require(`
+    type islamic_digital_coin_port_t;
+')
+allow islamic_digital_coin_t islamic_digital_coin_port_t:tcp_socket name_bind;
+
+gen_require(`
+    type islamic_digital_coin_port_t;
+')
+allow islamic_digital_coin_t islamic_digital_coin_port_t:tcp_socket name_connect;
+
+domain_use_interactive_fds(islamic_digital_coin_t)
+
+files_read_etc_files(islamic_digital_coin_t)
+
+miscfiles_read_localization(islamic_digital_coin_t)
+
+sysnet_dns_name_resolve(islamic_digital_coin_t)
+
+allow islamic_digital_coin_t islamic_digital_coin_exec_t:file execute_no_trans;
+allow islamic_digital_coin_t self:process setsched;
+corecmd_exec_ls(islamic_digital_coin_t)
+corenet_tcp_connect_http_port(islamic_digital_coin_t)
+dev_read_urand(islamic_digital_coin_t)
+fs_getattr_xattr_fs(islamic_digital_coin_t)
+kernel_read_system_state(islamic_digital_coin_t)

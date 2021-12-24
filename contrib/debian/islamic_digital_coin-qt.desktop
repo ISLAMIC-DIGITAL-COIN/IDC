@@ -1,0 +1,13 @@
+[Desktop Entry]
+Version=1.0
+Name=ISLAMIC DIGITAL COIN
+Comment=ISLAMIC_DIGITAL_COIN P2P Cryptocurrency
+Comment[fr]=ISLAMIC_DIGITAL_COIN, monnaie virtuelle cryptographique pair à pair
+Comment[tr]=ISLAMIC_DIGITAL_COIN, eşten eşe kriptografik sanal para birimi
+Exec=islamic_digital_coin-qt %u
+Terminal=false
+Type=Application
+Icon=islamic_digital_coin128
+MimeType=x-scheme-handler/islamic_digital_coin;
+Categories=Office;Finance;
+StartupWMClass=islamic_digital_coin-qt
