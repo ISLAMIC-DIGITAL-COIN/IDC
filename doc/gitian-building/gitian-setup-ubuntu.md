@@ -32,10 +32,10 @@ git config --global user.email "MY_NAME@example.com"
 Fetching the Build Script
 --------------------------
 
-The build script we'll be using is contained in the ISLAMIC_DIGITAL_COIN github repository ([contrib/gitian-build.py](https://github.com/islamic_digital_coin-project/islamic_digital_coin/blob/master/contrib/gitian-build.py)). Since this is a completely fresh environment, we haven't yet cloned the ISLAMIC_DIGITAL_COIN repository and will need to fetch this script with the following commands:
+The build script we'll be using is contained in the ISLAMIC_DIGITAL_COIN github repository ([contrib/gitian-build.py](https://github.com/ISLAMIC-DIGITAL-COIN/IDC/blob/master/contrib/gitian-build.py)). Since this is a completely fresh environment, we haven't yet cloned the ISLAMIC_DIGITAL_COIN repository and will need to fetch this script with the following commands:
 
 ```bash
-curl -L -O https://raw.githubusercontent.com/ISLAMIC_DIGITAL_COIN-Project/ISLAMIC_DIGITAL_COIN/master/contrib/gitian-build.py
+curl -L -O https://raw.githubusercontent.com/ISLAMIC-DIGITAL-COIN/IDC/master/contrib/gitian-build.py
 chmod +x gitian-build.py
 ```
 

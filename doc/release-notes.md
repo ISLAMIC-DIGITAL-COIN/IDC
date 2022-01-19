@@ -1,8 +1,8 @@
-ISLAMIC DIGITAL COIN version v5.2.0 is now available from:  <https://github.com/islamic_digital_coin-project/islamic_digital_coin/releases>
+ISLAMIC DIGITAL COIN version v5.2.0 is now available from:  <https://github.com/ISLAMIC-DIGITAL-COIN/IDC/releases>
 
 This is a new major version release, including various bug fixes and visual improvements.
 
-Please report bugs using the issue tracker at github: <https://github.com/islamic_digital_coin-project/islamic_digital_coin/issues>
+Please report bugs using the issue tracker at github: <https://github.com/ISLAMIC-DIGITAL-COIN/IDC/issues>
 
 Mandatory Update
 ==============

@@ -29,7 +29,7 @@ packages:
 - "python3-setuptools"
 - "fonts-tuffy"
 remotes:
-- "url": "https://github.com/islamic_digital_coin-project/islamic_digital_coin.git"
+- "url": "https://github.com/ISLAMIC-DIGITAL-COIN/IDC.git"
   "dir": "islamic_digital_coin"
 files:
 - "MacOSX10.11.sdk.tar.gz"
@@ -87,7 +87,7 @@ script: |
   create_per-host_faketime_wrappers "2000-01-01 12:00:00"
   export PATH=${WRAP_DIR}:${PATH}
 
-  cd islamic_digital_coin
+  cd IDC
   BASEPREFIX=`pwd`/depends
 
   mkdir -p ${BASEPREFIX}/SDKs

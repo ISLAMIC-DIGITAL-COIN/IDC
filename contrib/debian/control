@@ -29,8 +29,8 @@ Build-Depends: debhelper,
  dh-systemd
 Standards-Version: 3.9.2
 Homepage: http://www.islamic_digital_coin.org
-Vcs-Git: git://github.com/ISLAMIC_DIGITAL_COIN-Project/ISLAMIC_DIGITAL_COIN.git
-Vcs-Browser: http://github.com/ISLAMIC_DIGITAL_COIN-Project/ISLAMIC_DIGITAL_COIN
+Vcs-Git: git://github.com/ISLAMIC-DIGITAL-COIN/IDC.git
+Vcs-Browser: http://github.com/ISLAMIC-DIGITAL-COIN/IDC
 
 Package: islamic_digital_coind
 Architecture: any

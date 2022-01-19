@@ -9,6 +9,7 @@
 #include "key.h"
 #include "key_io.h"
 #include "test/test_islamic_digital_coin.h"
+#include "utilstrencodings.h"
 
 #include <string>
 #include <vector>

@@ -73,8 +73,8 @@ If you want to build the windows installer with `make deploy` you need [NSIS](ht
 
 Acquire the source in the usual way:
 
-    git clone https://github.com/islamic_digital_coin-project/islamic_digital_coin.git
-    cd islamic_digital_coin
+    git clone https://github.com/ISLAMIC-DIGITAL-COIN/IDC.git
+    cd IDC
 
 ## Building for 64-bit Windows
 
@@ -107,7 +107,21 @@ Build using:
     ./autogen.sh # not required when building from tarball
     CONFIG_SITE=$PWD/depends/x86_64-w64-mingw32/share/config.site ./configure --prefix=/ --disable-online-rust
     make
+    ./util/fetch-params.sh ./params # copy the params files to %APPDATA%/ISLAMIC_DIGITAL_COINParams
     sudo bash -c "echo 1 > /proc/sys/fs/binfmt_misc/status" # Enable WSL support for Win32 applications.
+
+or in one command on Ubuntu with log output: 
+
+    cd depends && make HOST=x86_64-w64-mingw32 && cd .. && ./autogen.sh && CONFIG_SITE=$PWD/depends/x86_64-w64-mingw32/share/config.site ./configure --prefix=/ --disable-online-rust && make
+
+or even without tests for quicker builds: 
+
+    cd depends && make HOST=x86_64-w64-mingw32 && cd .. && ./autogen.sh && CONFIG_SITE=$PWD/depends/x86_64-w64-mingw32/share/config.site ./configure --prefix=/ --disable-online-rust --disable-tests && make
+
+Bundle together using:
+
+    rsync -r -f '+ *.exe' -f '+ **/' -f '- *' --prune-empty-dirs ./src/ ./build/
+    echo 'PUSHD "%~dp0" && XCOPY "params\" "%APPDATA%\ISLAMIC_DIGITAL_COINParams\" /E /H /C /R /Q /Y' > $PWD/build/install-params.bat && $PWD/util/fetch-params.sh $PWD/build/params
 
 ## Depends system
 

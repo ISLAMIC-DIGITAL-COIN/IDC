@@ -8,7 +8,7 @@ architectures:
 packages:
 - "faketime"
 remotes:
-- "url": "https://github.com/islamic_digital_coin-project/islamic_digital_coin-detached-sigs.git"
+- "url": "https://github.com/ISLAMIC-DIGITAL-COIN/IDC-detached-sigs.git"
   "dir": "signature"
 files:
 - "islamic_digital_coin-osx-unsigned.tar.gz"
