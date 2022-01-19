@@ -33,7 +33,7 @@ packages:
 - "ca-certificates"
 - "python3"
 remotes:
-- "url": "https://github.com/islamic_digital_coin-project/islamic_digital_coin.git"
+- "url": "https://github.com/ISLAMIC-DIGITAL-COIN/IDC.git"
   "dir": "islamic_digital_coin"
 files: []
 script: |
@@ -123,7 +123,7 @@ script: |
   chmod +x ${WRAP_DIR}/${prog}
   done
 
-  cd islamic_digital_coin
+  cd IDC
   BASEPREFIX=`pwd`/depends
   # Build dependencies for each host
   for i in $HOSTS; do

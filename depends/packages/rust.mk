@@ -1,8 +1,8 @@
 package=rust
 $(package)_version=1.42.0
-$(package)_download_path=https://depends.islamic_digital_coin.org
+$(package)_download_path=https://depends.pivx.org
 $(package)_file_name_linux=rust-$($(package)_version)-x86_64-unknown-linux-gnu.tar.gz
-$(package)_sha256_hash_linux=5fed7d705e215fc129c4ace8060b5dc1a47e88228ce0249d48f30d769fcb6fe3
+$(package)_sha256_hash_linux=fce33280b344ab0fecc55be24632a3c0086fd763f4df1d59013dfc0e49f0356c
 $(package)_file_name_darwin=rust-$($(package)_version)-x86_64-apple-darwin.tar.gz
 $(package)_sha256_hash_darwin=db1055c46e0d54b99da05e88c71fea21b3897e74a4f5ff9390e934f3f050c0a8
 $(package)_file_name_freebsd=rust-$($(package)_version)-x86_64-unknown-freebsd.tar.gz
@@ -19,11 +19,11 @@ $(package)_rust_target_x86_64-linux-gnu=x86_64-unknown-linux-gnu
 $(package)_rust_target_x86_64-pc-linux-gnu=x86_64-unknown-linux-gnu
 
 # Mapping from Rust targets to SHA-256 hashes
-$(package)_rust_std_sha256_hash_arm-unknown-linux-gnueabihf=f91d28115a46eb9af5bb73bb776269534e02add1125346b2dd7e29ecf34da892
-$(package)_rust_std_sha256_hash_aarch64-unknown-linux-gnu=782b2ab52d062ecc7077ddbfff1f21b553ac21845688a75aed45d70214a3c3e7
-$(package)_rust_std_sha256_hash_i686-unknown-linux-gnu=58191b8ccc78bbd288285a8e9b03c5e473ffbdf9d79c7262130202454f17c41f
-$(package)_rust_std_sha256_hash_x86_64-unknown-linux-gnu=016c9619bdbb8023876579ed97ade2f8b049696c2163f7518328b77b2c274f25
-$(package)_rust_std_sha256_hash_riscv64gc-unknown-linux-gnu=5496c43c340dfbef0a335498752e4efeff4534ada9a96754d9660be98ae8dc41
+$(package)_rust_std_sha256_hash_arm-unknown-linux-gnueabihf=538790218a9515ef8e32c29a3f6d0d242281345fc8a5f0b0e1452bd350633e15
+$(package)_rust_std_sha256_hash_aarch64-unknown-linux-gnu=0d32e9600074b0b5e741d154dc72874e598a34e3b33818a0dc9d7a2243d75b7a
+$(package)_rust_std_sha256_hash_i686-unknown-linux-gnu=5bc82c00a62f5da9d3b6573a9880b1aa163cc524a02579a04a0889abc3020fc9
+$(package)_rust_std_sha256_hash_x86_64-unknown-linux-gnu=face97f81c746b884ac9a6062b2ac99b1f4c314199d0a90c57a0adb0a01dcdc8
+$(package)_rust_std_sha256_hash_riscv64gc-unknown-linux-gnu=4029ef6a767018af3a32f7ffa5aeef728dc763fc541e95395cf9924c1b9ca6f0
 $(package)_rust_std_sha256_hash_x86_64-apple-darwin=1d61e9ed5d29e1bb4c18e13d551c6d856c73fb8b410053245dc6e0d3b3a0e92c
 $(package)_rust_std_sha256_hash_x86_64-pc-windows-gnu=8a8389f3860df6f42fbf8b76a62ddc7b9b6fe6d0fb526dcfc42faab1005bfb6d
 

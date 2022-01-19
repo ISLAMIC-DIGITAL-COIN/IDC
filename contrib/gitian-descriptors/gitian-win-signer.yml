@@ -11,7 +11,7 @@ packages:
 - "libtool"
 - "pkg-config"
 remotes:
-- "url": "https://github.com/islamic_digital_coin-project/islamic_digital_coin-detached-sigs.git"
+- "url": "https://github.com/ISLAMIC-DIGITAL-COIN/IDC-detached-sigs.git"
   "dir": "signature"
 files:
 - "osslsigncode-2.0.tar.gz"

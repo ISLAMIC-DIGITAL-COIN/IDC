@@ -9,6 +9,7 @@
 
 #include "sapling/address.h"
 #include "sapling/sapling_util.h"
+#include "utilstrencodings.h"
 
 #include <boost/test/unit_test.hpp>
 #include <univalue.h>

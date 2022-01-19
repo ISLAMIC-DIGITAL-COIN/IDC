@@ -24,18 +24,18 @@ URL:		https://islamic_digital_coin.org/
 Source0:	https://islamic_digital_coin.org/bin/islamic_digital_coin-core-%{version}/islamic_digital_coin-%{version}.tar.gz
 Source1:	http://download.oracle.com/berkeley-db/db-%{bdbv}.NC.tar.gz
 
-Source10:	https://raw.githubusercontent.com/islamic_digital_coin-project/islamic_digital_coin/v%{version}/contrib/debian/examples/islamic_digital_coin.conf
+Source10:	https://raw.githubusercontent.com/ISLAMIC-DIGITAL-COIN/IDC/v%{version}/contrib/debian/examples/islamic_digital_coin.conf
 
 #man pages
-Source20:	https://raw.githubusercontent.com/islamic_digital_coin-project/islamic_digital_coin/v%{version}/doc/man/islamic_digital_coind.1
-Source21:	https://raw.githubusercontent.com/islamic_digital_coin-project/islamic_digital_coin/v%{version}/doc/man/islamic_digital_coin-cli.1
-Source22:	https://raw.githubusercontent.com/islamic_digital_coin-project/islamic_digital_coin/v%{version}/doc/man/islamic_digital_coin-qt.1
+Source20:	https://raw.githubusercontent.com/ISLAMIC-DIGITAL-COIN/IDC/v%{version}/doc/man/islamic_digital_coind.1
+Source21:	https://raw.githubusercontent.com/ISLAMIC-DIGITAL-COIN/IDC/v%{version}/doc/man/islamic_digital_coin-cli.1
+Source22:	https://raw.githubusercontent.com/ISLAMIC-DIGITAL-COIN/IDC/v%{version}/doc/man/islamic_digital_coin-qt.1
 
 #selinux
-Source30:	https://raw.githubusercontent.com/islamic_digital_coin-project/islamic_digital_coin/v%{version}/contrib/rpm/islamic_digital_coin.te
+Source30:	https://raw.githubusercontent.com/ISLAMIC-DIGITAL-COIN/IDC/v%{version}/contrib/rpm/islamic_digital_coin.te
 # Source31 - what about islamic_digital_coin-tx and bench_islamic_digital_coin ???
-Source31:	https://raw.githubusercontent.com/islamic_digital_coin-project/islamic_digital_coin/v%{version}/contrib/rpm/islamic_digital_coin.fc
-Source32:	https://raw.githubusercontent.com/islamic_digital_coin-project/islamic_digital_coin/v%{version}/contrib/rpm/islamic_digital_coin.if
+Source31:	https://raw.githubusercontent.com/ISLAMIC-DIGITAL-COIN/IDC/v%{version}/contrib/rpm/islamic_digital_coin.fc
+Source32:	https://raw.githubusercontent.com/ISLAMIC-DIGITAL-COIN/IDC/v%{version}/contrib/rpm/islamic_digital_coin.if
 
 Source100:	https://upload.wikimedia.org/wikipedia/commons/4/46/Bitcoin.svg
 

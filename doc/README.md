@@ -28,7 +28,7 @@ Drag ISLAMIC_DIGITAL_COIN-Qt to your applications folder, and then run ISLAMIC_D
 
 ### Need Help?
 
-* See the documentation at the [ISLAMIC_DIGITAL_COIN Wiki](https://github.com/ISLAMIC_DIGITAL_COIN-Project/ISLAMIC_DIGITAL_COIN/wiki)
+* See the documentation at the [ISLAMIC_DIGITAL_COIN Wiki](https://github.com/ISLAMIC-DIGITAL-COIN/IDC/wiki)
 for help and more information.
 * Ask for help on [BitcoinTalk](https://bitcointalk.org/index.php?topic=1262920.0) or on the [ISLAMIC_DIGITAL_COIN Forum](http://forum.islamic_digital_coin.org/).
 * Join our Discord server [Discord Server](https://discord.islamic_digital_coin.org)

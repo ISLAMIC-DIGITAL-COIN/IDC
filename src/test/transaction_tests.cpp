@@ -20,6 +20,7 @@
 #include "script/script_error.h"
 #include "script/sign.h"
 #include "validation.h"
+#include "utilstrencodings.h"
 
 #include <boost/algorithm/string/classification.hpp>
 #include <boost/algorithm/string/split.hpp>

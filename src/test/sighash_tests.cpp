@@ -15,6 +15,7 @@
 #include "util.h"
 #include "validation.h"
 #include "version.h"
+#include "utilstrencodings.h"
 
 #include <iostream>
 
